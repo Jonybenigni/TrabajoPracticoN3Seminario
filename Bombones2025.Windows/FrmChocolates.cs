@@ -35,7 +35,7 @@ namespace Bombones2025.Windows
             {
                 var r = GridHelper.ConstruirFila(dgvDatos);
                 GridHelper.SetearFila(r, chocolate);
-                GridHelper.AgregarFila(r,dgvDatos);
+                GridHelper.AgregarFila(r, dgvDatos);
             }
         }
 
@@ -60,7 +60,7 @@ namespace Bombones2025.Windows
                     _servicio.Guardar(chocolate);
                     DataGridViewRow r = GridHelper.ConstruirFila(dgvDatos);
                     GridHelper.SetearFila(r, chocolate);
-                    GridHelper.AgregarFila(r,dgvDatos);
+                    GridHelper.AgregarFila(r, dgvDatos);
                     MessageBox.Show("Registro Agregado", "Información",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -144,5 +144,9 @@ namespace Bombones2025.Windows
             }
         }
 
+        private void TsbFiltrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

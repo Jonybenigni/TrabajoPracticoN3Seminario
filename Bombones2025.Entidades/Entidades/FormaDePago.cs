@@ -14,5 +14,13 @@ namespace Bombones2025.Entidades.Entidades
         {
             return $"{Descripcion}";
         }
+        public FormaDePago Clonar()
+        {
+            return new FormaDePago()
+            {
+                FormaDePagoId = FormaDePagoId,
+                Descripcion = Descripcion,
+            };
+        }
     }
 }
