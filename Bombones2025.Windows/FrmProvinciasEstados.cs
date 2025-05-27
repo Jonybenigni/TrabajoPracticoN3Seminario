@@ -21,5 +21,10 @@ namespace Bombones2025.Windows
         {
             Close();
         }
+
+        private void TsbFiltrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,19 +1,28 @@
 ﻿using Bombones2025.Entidades.Entidades;
 using Bombones2025.Servicios.Servicios;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Bombones2025.Windows
 {
-    public partial class FrmFrutosSecos : Form
+    public partial class FrmTipoDePago : Form
     {
-        private readonly FrutoSecoServicio _servicio = null!;
-        private List<FrutoSeco> lista = null!;
-        public FrmFrutosSecos(FrutoSecoServicio servicio)
+        private readonly FormaDePagoServicio _servicio = null!;
+        private List<FormaDePago> lista = null!;
+        public FrmTipoDePago(FormaDePagoServicio servicio)
         {
             InitializeComponent();
             _servicio = servicio;
         }
 
-        private void FrmFrutosSecos_Load(object sender, EventArgs e)
+        private void FrmTipoDePago_Load(object sender, EventArgs e)
         {
             try
             {
@@ -30,7 +39,7 @@ namespace Bombones2025.Windows
         private void MostrarDatosEnGrilla()
         {
             dgvDatos.Rows.Clear();
-            foreach (FrutoSeco fs in lista)
+            foreach (FormaDePago fs in lista)
             {
                 DataGridViewRow r = new DataGridViewRow();
                 r.CreateCells(dgvDatos);
@@ -44,33 +53,41 @@ namespace Bombones2025.Windows
             dgvDatos.Rows.Add(r);
         }
 
-        private void SetearFila(DataGridViewRow r, FrutoSeco frutoSeco)
+        private void SetearFila(DataGridViewRow r, FormaDePago formaPago)
         {
-            r.Cells[0].Value = frutoSeco.FrutoSecoId;
-            r.Cells[1].Value = frutoSeco.Descripcion;
+            r.Cells[0].Value = formaPago.FormaDePagoId;
+            r.Cells[1].Value = formaPago.Descripcion;
 
-            r.Tag = frutoSeco;
+            r.Tag = formaPago;
         }
 
-        private void TsbCerrar_Click(object sender, EventArgs e)
+        private DataGridViewRow ConstuirFila()
         {
-            Close();
+            var r = new DataGridViewRow();
+            r.CreateCells(dgvDatos);
+            return r;
         }
+
+        private void QuitarFila(DataGridViewRow r)
+        {
+            dgvDatos.Rows.Remove(r);
+        }
+
 
         private void TsbNuevo_Click(object sender, EventArgs e)
         {
-            FrmFrutosSecosAE frm = new FrmFrutosSecosAE() { Text = "Agregar Fruto Seco" };
+            FrmFormasDePagoAE frm = new FrmFormasDePagoAE() { Text = "Agregar Tipo de Pago" };
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel) return;
-            FrutoSeco? fruto = frm.GetFrutoSeco();
-            if (fruto is null) return;
+            FormaDePago? formaPago = frm.GetFormaDePago();
+            if (formaPago is null) return;
             try
             {
-                if (!_servicio.Existe(fruto))
+                if (!_servicio.Existe(formaPago))
                 {
-                    _servicio.Guardar(fruto);
+                    _servicio.Guardar(formaPago);
                     DataGridViewRow r = ConstuirFila();
-                    SetearFila(r, fruto);
+                    SetearFila(r, formaPago);
                     AgregarFila(r);
                     MessageBox.Show("Registro Agregado", "Información",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -90,18 +107,16 @@ namespace Bombones2025.Windows
             }
         }
 
-        private DataGridViewRow ConstuirFila()
+        private void TsbCerrar_Click(object sender, EventArgs e)
         {
-            var r = new DataGridViewRow();
-            r.CreateCells(dgvDatos);
-            return r;
+            Close();
         }
 
         private void TsbBorrar_Click(object sender, EventArgs e)
         {
             if (dgvDatos.SelectedRows.Count == 0) return;
             DataGridViewRow r = dgvDatos.SelectedRows[0];
-            FrutoSeco? fs = r.Tag as FrutoSeco;
+            FormaDePago? fs = r.Tag as FormaDePago;
             if (fs is null) return;
             DialogResult dr = MessageBox.Show($"¿Desea borrar el registro de {fs}?",
                 "Confirmar Baja",
@@ -110,7 +125,7 @@ namespace Bombones2025.Windows
             if (dr == DialogResult.No) return;
             try
             {
-                _servicio.Borrar(fs.FrutoSecoId);
+                _servicio.Borrar(fs.FormaDePagoId);
                 QuitarFila(r);
                 MessageBox.Show("Registro Eliminado", "Información",
                         MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -124,23 +139,18 @@ namespace Bombones2025.Windows
             }
         }
 
-        private void QuitarFila(DataGridViewRow r)
-        {
-            dgvDatos.Rows.Remove(r);
-        }
-
         private void TsbEditar_Click(object sender, EventArgs e)
         {
             if (dgvDatos.SelectedRows.Count == 0) return;
             DataGridViewRow r = dgvDatos.SelectedRows[0];
-            FrutoSeco? fs = r.Tag as FrutoSeco;
+            FormaDePago? fs = r.Tag as FormaDePago;
             if (fs is null) return;
-            FrutoSeco? fsEditar = fs.Clonar();
-            FrmFrutosSecosAE frm = new FrmFrutosSecosAE() { Text = "Editar Fruto Seco" };
-            frm.SetFruto(fsEditar);
+            FormaDePago? fsEditar = fs.Clonar();
+            FrmFormasDePagoAE frm = new FrmFormasDePagoAE() { Text = "Editar Formas de Pago" };
+            frm.SetFormaDePago(fsEditar);
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel) return;
-            fsEditar = frm.GetFrutoSeco();
+            fsEditar = frm.GetFormaDePago();
             if (fsEditar is null) return;
             try
             {
@@ -166,7 +176,7 @@ namespace Bombones2025.Windows
             }
         }
 
-        private void TsbFiltrar_Click(object sender, EventArgs e)
+        private void TsbActualizar_Click(object sender, EventArgs e)
         {
 
         }
