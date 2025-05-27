@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             toolStrip2 = new ToolStrip();
             TsbNuevo = new ToolStripButton();
             TsbBorrar = new ToolStripButton();
@@ -69,6 +69,7 @@
             toolStrip2.Size = new Size(928, 67);
             toolStrip2.TabIndex = 5;
             toolStrip2.Text = "toolStrip2";
+            toolStrip2.ItemClicked += toolStrip2_ItemClicked;
             // 
             // TsbNuevo
             // 
@@ -189,8 +190,8 @@
             // 
             dgvDatos.AllowUserToAddRows = false;
             dgvDatos.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(224, 224, 224);
-            dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(224, 224, 224);
+            dgvDatos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colId, colDescripcion });
             dgvDatos.Dock = DockStyle.Fill;
@@ -203,6 +204,7 @@
             dgvDatos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDatos.Size = new Size(928, 320);
             dgvDatos.TabIndex = 3;
+            dgvDatos.CellContentClick += dgvDatos_CellContentClick;
             // 
             // colId
             // 
@@ -311,6 +313,7 @@
             Controls.Add(toolStrip2);
             Name = "FrmTipoDePago";
             Text = "FrmTipoDePago";
+            Load += FrmTipoDePago_Load_1;
             toolStrip2.ResumeLayout(false);
             toolStrip2.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);

@@ -1,6 +1,6 @@
 ﻿namespace Bombones2025.Windows
 {
-    partial class FrmFormasDePago
+    partial class FrmTipoDePagoAE
     {
         /// <summary>
         /// Required designer variable.
@@ -40,37 +40,39 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(32, 40);
+            label1.Location = new Point(37, 53);
             label1.Name = "label1";
-            label1.Size = new Size(91, 15);
+            label1.Size = new Size(114, 20);
             label1.TabIndex = 0;
             label1.Text = "Forma De Pago:";
             // 
             // txtFormaDePago
             // 
-            txtFormaDePago.Location = new Point(129, 37);
+            txtFormaDePago.Location = new Point(147, 49);
+            txtFormaDePago.Margin = new Padding(3, 4, 3, 4);
             txtFormaDePago.Name = "txtFormaDePago";
-            txtFormaDePago.Size = new Size(340, 23);
+            txtFormaDePago.Size = new Size(388, 27);
             txtFormaDePago.TabIndex = 1;
             // 
             // BtnCancelar
             // 
             BtnCancelar.Image = Properties.Resources.Cancelar;
-            BtnCancelar.Location = new Point(394, 128);
+            BtnCancelar.Location = new Point(450, 171);
+            BtnCancelar.Margin = new Padding(3, 4, 3, 4);
             BtnCancelar.Name = "BtnCancelar";
-            BtnCancelar.Size = new Size(75, 52);
+            BtnCancelar.Size = new Size(86, 69);
             BtnCancelar.TabIndex = 9;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
             BtnCancelar.UseVisualStyleBackColor = true;
-            BtnCancelar.Click += BtnCancelar_Click;
             // 
             // BtnOK
             // 
             BtnOK.Image = Properties.Resources.Aceptar1;
-            BtnOK.Location = new Point(55, 128);
+            BtnOK.Location = new Point(63, 171);
+            BtnOK.Margin = new Padding(3, 4, 3, 4);
             BtnOK.Name = "BtnOK";
-            BtnOK.Size = new Size(75, 52);
+            BtnOK.Size = new Size(86, 69);
             BtnOK.TabIndex = 10;
             BtnOK.Text = "OK";
             BtnOK.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -81,19 +83,21 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
-            // FrmFormasDePago
+            // FrmTipoDePagoAE
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(592, 232);
+            ClientSize = new Size(674, 299);
             Controls.Add(BtnCancelar);
             Controls.Add(BtnOK);
             Controls.Add(txtFormaDePago);
             Controls.Add(label1);
-            MaximumSize = new Size(608, 271);
-            MinimumSize = new Size(608, 271);
-            Name = "FrmFormasDePago";
+            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(692, 346);
+            MinimumSize = new Size(692, 346);
+            Name = "FrmTipoDePagoAE";
             Text = "FrmFormasDePago";
+            Load += FrmFormasDePago_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();

@@ -57,5 +57,9 @@ namespace Bombones2025.Windows
             this.chocolate = chocolate;
         }
 
+        private void FrmChocolatesAE_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -40,9 +40,10 @@
             // BtnCancelar
             // 
             BtnCancelar.Image = Properties.Resources.Cancelar;
-            BtnCancelar.Location = new Point(387, 95);
+            BtnCancelar.Location = new Point(442, 127);
+            BtnCancelar.Margin = new Padding(3, 4, 3, 4);
             BtnCancelar.Name = "BtnCancelar";
-            BtnCancelar.Size = new Size(75, 52);
+            BtnCancelar.Size = new Size(86, 69);
             BtnCancelar.TabIndex = 9;
             BtnCancelar.Text = "Cancelar";
             BtnCancelar.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -52,9 +53,10 @@
             // BtnOK
             // 
             BtnOK.Image = Properties.Resources.Aceptar1;
-            BtnOK.Location = new Point(48, 95);
+            BtnOK.Location = new Point(55, 127);
+            BtnOK.Margin = new Padding(3, 4, 3, 4);
             BtnOK.Name = "BtnOK";
-            BtnOK.Size = new Size(75, 52);
+            BtnOK.Size = new Size(86, 69);
             BtnOK.TabIndex = 10;
             BtnOK.Text = "OK";
             BtnOK.TextImageRelation = TextImageRelation.ImageAboveText;
@@ -63,18 +65,19 @@
             // 
             // TxtChocolate
             // 
-            TxtChocolate.Location = new Point(120, 50);
+            TxtChocolate.Location = new Point(137, 67);
+            TxtChocolate.Margin = new Padding(3, 4, 3, 4);
             TxtChocolate.MaxLength = 100;
             TxtChocolate.Name = "TxtChocolate";
-            TxtChocolate.Size = new Size(342, 23);
+            TxtChocolate.Size = new Size(390, 27);
             TxtChocolate.TabIndex = 8;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(48, 53);
+            label1.Location = new Point(55, 71);
             label1.Name = "label1";
-            label1.Size = new Size(64, 15);
+            label1.Size = new Size(79, 20);
             label1.TabIndex = 7;
             label1.Text = "Chocolate:";
             // 
@@ -84,18 +87,20 @@
             // 
             // FrmChocolatesAE
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(508, 180);
+            ClientSize = new Size(578, 229);
             Controls.Add(BtnCancelar);
             Controls.Add(BtnOK);
             Controls.Add(TxtChocolate);
             Controls.Add(label1);
-            MaximumSize = new Size(524, 219);
-            MinimumSize = new Size(524, 219);
+            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(596, 276);
+            MinimumSize = new Size(596, 276);
             Name = "FrmChocolatesAE";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmChocolateAE";
+            Load += FrmChocolatesAE_Load;
             ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();

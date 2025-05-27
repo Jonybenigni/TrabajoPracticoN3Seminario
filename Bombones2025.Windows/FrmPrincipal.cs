@@ -108,5 +108,10 @@ namespace Bombones2025.Windows
                     MessageBoxIcon.Error);
             }
         }
+
+        private void FrmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

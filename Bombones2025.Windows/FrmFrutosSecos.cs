@@ -170,5 +170,10 @@ namespace Bombones2025.Windows
         {
 
         }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

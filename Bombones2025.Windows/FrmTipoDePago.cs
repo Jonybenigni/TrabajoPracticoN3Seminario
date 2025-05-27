@@ -22,19 +22,7 @@ namespace Bombones2025.Windows
             _servicio = servicio;
         }
 
-        private void FrmTipoDePago_Load(object sender, EventArgs e)
-        {
-            try
-            {
-                lista = _servicio.GetLista();
-                MostrarDatosEnGrilla();
-            }
-            catch (Exception)
-            {
-
-                throw;
-            }
-        }
+       
 
         private void MostrarDatosEnGrilla()
         {
@@ -76,7 +64,7 @@ namespace Bombones2025.Windows
 
         private void TsbNuevo_Click(object sender, EventArgs e)
         {
-            FrmFormasDePagoAE frm = new FrmFormasDePagoAE() { Text = "Agregar Tipo de Pago" };
+            FrmTipoDePagoAE frm = new FrmTipoDePagoAE() { Text = "Agregar Tipo de Pago" };
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel) return;
             FormaDePago? formaPago = frm.GetFormaDePago();
@@ -146,8 +134,8 @@ namespace Bombones2025.Windows
             FormaDePago? fs = r.Tag as FormaDePago;
             if (fs is null) return;
             FormaDePago? fsEditar = fs.Clonar();
-            FrmFormasDePagoAE frm = new FrmFormasDePagoAE() { Text = "Editar Formas de Pago" };
-            frm.SetFormaDePago(fsEditar);
+            FrmTipoDePagoAE frm = new FrmTipoDePagoAE() { Text = "Editar Formas de Pago" };
+            frm.SetFormaDepago(fsEditar);
             DialogResult dr = frm.ShowDialog(this);
             if (dr == DialogResult.Cancel) return;
             fsEditar = frm.GetFormaDePago();
@@ -179,6 +167,30 @@ namespace Bombones2025.Windows
         private void TsbActualizar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dgvDatos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void toolStrip2_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void FrmTipoDePago_Load_1(object sender, EventArgs e)
+        {
+            try
+            {
+                lista = _servicio.GetLista();
+                MostrarDatosEnGrilla();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }

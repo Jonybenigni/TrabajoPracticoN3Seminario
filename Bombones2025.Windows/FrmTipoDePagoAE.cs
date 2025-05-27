@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace Bombones2025.Windows
 {
-    public partial class FrmFormasDePago : Form
+    public partial class FrmTipoDePagoAE : Form
     {
         private FormaDePago? formadepago;
-        public FrmFormasDePago()
+        public FrmTipoDePagoAE()
         {
             InitializeComponent();
         }
@@ -68,6 +68,11 @@ namespace Bombones2025.Windows
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
+        }
+
+        private void FrmFormasDePago_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

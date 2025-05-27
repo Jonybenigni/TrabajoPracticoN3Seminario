@@ -131,6 +131,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "FrmPrincipal";
             Text = "FrmPrincipal";
+            Load += FrmPrincipal_Load;
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
             ResumeLayout(false);
